@@ -1,0 +1,5 @@
+/* Completely hide the routing instruction container */
+.leaflet-routing-container,
+.leaflet-routing-error {
+    display: none !important;
+}

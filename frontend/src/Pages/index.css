@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* Leaflet Fixes */
+@import "tailwindcss";
+
+:root {
+  --color-glass-surface: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-primary-glow: #10b981;
+  --color-secondary-glow: #3b82f6;
+  --glass-bg: rgba(22, 22, 24, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --neon-green: #00ff9d;
+  --neon-blue: #00bcd4;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+:root {
+  --glass-bg: rgba(22, 22, 24, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --neon-green: #00ff9d;
+  --neon-blue: #00bcd4;
+}
+
+body {
+  background-color: #0f172a;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+  outline: none;
+}
+
+.glass-btn {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(6, 95, 70, 0.8));
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.glass-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glass-card:hover { 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a; 
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; 
+}
+
+/* Leaflet Dark Mode Override */
+.leaflet-container {
+    background: #1e293b !important;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: rgba(30, 41, 59, 0.95);
+    color: white;
+    backdrop-filter: blur(4px);
+}

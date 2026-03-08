@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+/* Leaflet Fixes */
+
+:root {
+  --color-glass-surface: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-primary-glow: #10b981;
+  --color-secondary-glow: #3b82f6;
+  --glass-bg: rgba(22, 22, 24, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --neon-green: #00ff9d;
+  --neon-blue: #00bcd4;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+:root {
+  --glass-bg: rgba(22, 22, 24, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --neon-green: #00ff9d;
+  --neon-blue: #00bcd4;
+}
+
+/* Dark theme (default) */
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-glass: rgba(30, 41, 59, 0.7);
+  --bg-glass-input: rgba(15, 23, 42, 0.6);
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(15, 23, 42, 0.8);
+  --toast-bg: rgba(30, 41, 59, 0.95);
+  --toast-text: #ffffff;
+  --toast-border: rgba(255, 255, 255, 0.2);
+  --glass-overlay: rgba(255, 255, 255, 0.05);
+  --glass-overlay-hover: rgba(255, 255, 255, 0.1);
+  --glass-border-light: rgba(255, 255, 255, 0.1);
+  --text-gray-light: #cbd5e1;
+  --text-gray-muted-light: #94a3b8;
+}
+
+/* Light theme */
+.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-glass-input: rgba(255, 255, 255, 0.95);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --toast-bg: rgba(255, 255, 255, 0.95);
+  --toast-text: #0f172a;
+  --toast-border: rgba(0, 0, 0, 0.1);
+  --glass-overlay: rgba(0, 0, 0, 0.03);
+  --glass-overlay-hover: rgba(0, 0, 0, 0.08);
+  --glass-border-light: rgba(0, 0, 0, 0.08);
+  --text-gray-light: #475569;
+  --text-gray-muted-light: #71717a;
+}
+
+/* Theme-aware utility classes */
+.theme-bg {
+  background-color: var(--bg-primary) !important;
+}
+
+.theme-text {
+  color: var(--text-primary) !important;
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.theme-text-muted {
+  color: var(--text-muted) !important;
+}
+
+.theme-glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+}
+
+.theme-glass-overlay {
+  background: var(--glass-overlay) !important;
+}
+
+.theme-glass-overlay:hover {
+  background: var(--glass-overlay-hover) !important;
+}
+
+/* Theme-aware border utilities */
+.theme-border {
+  border-color: var(--border-color) !important;
+}
+
+/* Theme-aware text utilities for gray colors */
+.theme-gray {
+  color: var(--text-gray-light) !important;
+}
+
+.theme-gray-muted {
+  color: var(--text-gray-muted-light) !important;
+}
+
+/* Global theme-aware replacements using attribute selectors */
+[class*="bg-white/5"],
+[class*="bg-white/10"] {
+  background: var(--glass-overlay) !important;
+}
+
+[class*="border-white/10"],
+[class*="border-white/5"] {
+  border-color: var(--border-color) !important;
+}
+
+/* Theme-aware text colors - more comprehensive */
+.dark [class*="text-white"]:not([class*="text-emerald"]):not([class*="text-red"]):not([class*="text-blue"]):not([class*="text-cyan"]):not([class*="text-green"]) {
+  color: var(--text-primary) !important;
+}
+
+.light [class*="text-white"]:not([class*="text-emerald"]):not([class*="text-red"]):not([class*="text-blue"]):not([class*="text-cyan"]):not([class*="text-green"]):not([class*="bg-emerald"]):not([class*="bg-teal"]):not([class*="bg-blue"]):not([class*="bg-red"]):not([class*="bg-indigo"]):not([class*="bg-purple"]):not([class*="bg-cyan"]):not([class*="bg-green"]) {
+  color: var(--text-primary) !important;
+}
+
+[class*="text-gray-400"]:not([class*="text-emerald"]):not([class*="text-red"]):not([class*="text-blue"]) {
+  color: var(--text-gray-muted-light) !important;
+}
+
+[class*="text-gray-500"]:not([class*="text-emerald"]):not([class*="text-red"]):not([class*="text-blue"]) {
+  color: var(--text-gray-muted-light) !important;
+}
+
+[class*="text-gray-600"]:not([class*="text-emerald"]):not([class*="text-red"]):not([class*="text-blue"]) {
+  color: var(--text-muted) !important;
+}
+
+[class*="text-gray-200"]:not([class*="text-emerald"]):not([class*="text-red"]):not([class*="text-blue"]) {
+  color: var(--text-secondary) !important;
+}
+
+[class*="text-gray-300"]:not([class*="text-emerald"]):not([class*="text-red"]):not([class*="text-blue"]) {
+  color: var(--text-secondary) !important;
+}
+
+/* Input and select elements should use theme colors */
+input[class*="bg-white/5"],
+input[class*="bg-slate-800"],
+select[class*="bg-white/5"],
+select[class*="bg-slate-800"],
+textarea[class*="bg-white/5"] {
+  background: var(--bg-glass-input) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light body {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+}
+
+.glass-panel {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.light .glass-panel {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+.glass-input {
+  background: var(--bg-glass-input) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+  outline: none;
+}
+
+.glass-btn {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(6, 95, 70, 0.8));
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.glass-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glass-card:hover { 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary); 
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Leaflet Routing Machine Theme Support */
+.leaflet-routing-container {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 1rem !important;
+    padding: 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    max-width: 320px !important;
+}
+
+.leaflet-routing-alt {
+    max-height: 200px !important;
+    overflow-y: auto !important;
+}
+
+.leaflet-routing-alt::-webkit-scrollbar {
+    width: 4px;
+}
+
+.leaflet-routing-alt-sidebar h2 {
+    color: #10b981 !important;
+    font-weight: 800 !important;
+}
+
+.leaflet-routing-icon {
+    filter: invert(1) brightness(2);
+}
+
+/* Hide default routing instructions for cleaner look as we have a custom indicator */
+.leaflet-routing-container {
+    display: none !important;
+}
+
+/* Ensure routing line is on top of tiles but below interactions */
+.leaflet-routing-control-container {
+    z-index: 800 !important;
+}
+
+.leaflet-pane {
+    z-index: 400 !important;
+}
+
+.leaflet-overlay-pane {
+    z-index: 600 !important; /* Routing lines usually go here */
+}
+
+.leaflet-marker-pane {
+    z-index: 700 !important;
+}
+
+.leaflet-top, .leaflet-bottom {
+    z-index: 1000 !important;
+}
+
+/* Mobile specific height adjustment */
+@media (max-width: 768px) {
+    .leaflet-container {
+        height: 100dvh !important;
+    }
+}
+
+/* Leaflet Generic Theme Support */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+}
+
+.leaflet-container {
+    background-color: var(--bg-primary) !important;
+}
+
+.custom-marker-icon {
+    transition: transform 0.3s ease;
+}
+
+.user-marker {
+    z-index: 1000 !important;
+}
