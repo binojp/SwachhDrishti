@@ -1,6 +1,15 @@
 # ♻️ Swachhdrishti
 ### Smart Waste Management Ecosystem
 
+| 🔗 Quick Links | Target |
+| :--- | :--- |
+| 🚀 **Live Demo** | [swachhdrishti.pages.dev](https://swachhdrishti.pages.dev) |
+| 📹 **Demo Video** | [Watch on Google Drive](https://drive.google.com/file/d/1QKyCvbQNYQFJ_Z17uETqn2Sm4QTvkU4Q/view?usp=drivesdk) |
+| 🎬 **Pitch Video** | [Watch on Google Drive](https://drive.google.com/file/d/1er3_zDbgbziv1OaCF5n6EPd79bV7Zlmb/view?usp=drivesdk) |
+| 📊 **PPT** | [View Presentation](https://drive.google.com/file/d/14ABcSI_r---iCHbuLpUwFaS1IF9Gj29I/view?usp=drivesdk) |
+| 💻 **GitHub** | [binojp/SwachhDrishti](https://github.com/binojp/SwachhDrishti.git) |
+
+
 ## 🌟 Overview
 
 ### Problem Statement
